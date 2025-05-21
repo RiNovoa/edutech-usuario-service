@@ -3,16 +3,16 @@ package com.edutech.usuario.repository;
 import java.util.*;
 import org.springframework.stereotype.Repository;
 
+import com.edutech.usuario.model.Rol;
 import com.edutech.usuario.model.Usuario;
 
 @Repository
 public class UsuarioRepository {
+    Rol rolAdmin = new Rol(1, "Administrador");
     private List<Usuario> listaUsuarios = new ArrayList<>(); 
     public UsuarioRepository(){
-        listaUsuarios.add(new Usuario(1,"20562050","rishi","rishipeos","cr7elmejorsiu" ));
-        listaUsuarios.add(new Usuario(2,"20343443","kishtobals","kishtobalspishi","fcnegreira" ));
-        listaUsuarios.add(new Usuario(3,"20233455","valentina","valetinakaka","peoskakapishi" ));
-        listaUsuarios.add(new Usuario(4,"13245323","andres","andrespeos","realmadrid15champions" ));
+        listaUsuarios.add(new Usuario(1,"20562050-8","rishi rish","rishimadridista","15champions",rolAdmin,true));
+        
     }
     public List<Usuario> obteneUsuarios(){
         return listaUsuarios;
