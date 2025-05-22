@@ -1,34 +1,70 @@
+// Usuario.java
 package com.edutech.usuario.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "usuario")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "usuarios")
 public class Usuario {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
+
     private String rut;
-    @Column(nullable = false, length = 8)
     private String nombre;
-    @Column(nullable = false)
     private String correo;
-    @Column(nullable = false)
     private String contrasena;
-    @ManyToOne
-    @JoinColumn(name = "rol_id")
-    private Rol rol;
-    @Column(nullable = false)
-    private Boolean estado = true;
+    private int rolId;  // Solo un campo entero simple para rol
+    private boolean estado;
+
+    // Getters y setters
+
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    public String getRut() {
+        return rut;
+    }
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getCorreo() {
+        return correo;
+    }
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    public String getContrasena() {
+        return contrasena;
+    }
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+    public int getRolId() {
+        return rolId;
+    }
+    public void setRolId(int rolId) {
+        this.rolId = rolId;
+    }
+    public boolean isEstado() {
+        return estado;
+    }
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 }
+
